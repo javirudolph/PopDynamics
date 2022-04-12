@@ -73,3 +73,24 @@ quiz(
 )
 ```
 
+
+
+## Welcome!
+
+## Intro to R
+
+### How to install R
+
+![](https://vimeo.com/203516510)
+
+### How to install RStudio
+
+![](https://vimeo.com/203516968)
+
+## Differential Equations
+
+## Exponential
+
+## Logistic
+
+## Assessment

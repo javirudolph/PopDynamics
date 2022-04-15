@@ -1,5 +1,5 @@
 ---
-title: "Tutorial"
+title: "Day 01"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -10,74 +10,31 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Topic 1
+## Welcome!
 
-### Exercise 
+We are very excited to have you here and we hope that this short workshop will provide a useful and practical introduction to population dynamics using R.
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
 
-Write the R code required to add two plus two:
-
-```{r two-plus-two, exercise=TRUE}
-
-```
-
-### Exercise with Code
-
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
-
-Now write a function that adds any two numbers and then call it:
-
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
-```
-
-## Topic 2
-
-### Exercise with Hint
-
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
+```{r PopDynQ}
 quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
+  question("What do we mean by population dynamics?",
+           answer("analysis of factors that affect the stability of populations over time", correct = TRUE),
+           answer("how and why populations change in size and structure over time", correct = TRUE),
+           answer("type of mathematics used to model population fluctuations", correct = TRUE),
+           correct = "Correct!",
+           allow_retry = TRUE,
+           random_answer_order = TRUE
+           )
 )
 ```
 
+In this workshop, we hope to give you an introduction to population dynamics modeling, and in the process, show you how to use R to understand how populations change over time.
 
+## What is R
 
-## Welcome!
+*So, why R? What is R?* As the [R project website](https://www.r-project.org/) describes it, R is a software environment used for statistics and graphics. However, from personal experience we can tell you that R is much more than that. R is a software environment, and just like many other software you may use to write or make presentations, R was initially developed to perform statistical operations. Nowadays, you can use R to perform statistical analysis, plot your data, make maps, [art](https://twitter.com/accidental__art?lang=en), and even this tutorial.  
 
-## Intro to R
+If you have not done so already, please watch the following videos to install R and RStudio:  
 
 ### How to install R
 
@@ -87,10 +44,58 @@ quiz(
 
 ![](https://vimeo.com/203516968)
 
-## Differential Equations
+## Intro to R
 
-## Exponential
+## Dynamic Equations
 
-## Logistic
+  * Represent changes over time in the state of the system
+  * Time can be assumed discrete ($t-1, t, t+1, ...$) or continuous ($t>0$)
+  * The state variable is a quantity that represents the state of the system at time $t$ (e.g. $n(t) =$ population size at time $t$).
+  *  Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws.
 
-## Assessment
+**Building dynamic models in continuous time**  
+
+Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.If we are going to consider continuous time dynamic models for species with overlapping generations, we’d better come up with a system that eases the process.Coming up with a mathematical function n(t) that describes the changes in the state of the system (like population size) directly (‘out of the blue’) is difficult.It is easier, however, to think about biological processes that shape the rate of change the system, and then find out if the trends produced by such processes look like the observed
+trends. When we were talking about annual species, it was easy to build population dynamics models because we only had to predict what was going to happen one time step into the future.In continuous time, we use differential equation, what are these things!!??!! 
+
+
+## Differential Equations  
+
+What is a differential equation? It is an equation involving an unknown function and its derivatives. For example:
+
+$$\frac{df(x)}{dx} = r f(x)$$
+where $f(x)$ is a function of $x$. 
+
+
+
+![intro video](https://www.youtube.com/watch?v=HKvP2ESjJbA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

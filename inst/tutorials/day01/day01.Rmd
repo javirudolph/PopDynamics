@@ -69,7 +69,39 @@ You can use R as a simple calculator. For example, in the `code chunk` below typ
 ```
 
 
-You can also press the *Start Over* button and try different operations. You can also run multiple operations in the same window, as long as each operation is on one line. 
+You can also press the *Start Over* button and try different operations, or run multiple operations in the same window, as long as each operation is on one line.  
+
+### 
+
+`R` is an **Object-oriented** programming language: whenever we do any calculation, we can store the results by giving them a name.  The results then become an *object*, which is retrievable and can be altered in other calculations.  This is convenient whenever we are doing complex calculations and we simply don't want to retype all the instructions over and over again.  To assign a name to a calculation, we use the `<` sign followed by the `-` sign, which looks like an arrow pointing to the left, `<-`.  
+
+```{r name-object, exercise = TRUE, exercise.timelimit = 60}
+
+A <- 24+2
+
+# Type `A` in the line below and press the `run code` button
+
+``` 
+
+You can also make operations between multiple objects: 
+
+```{r name-object02, exercise = TRUE, exercise.timelimit = 60}
+
+# We will create another object, called `B`, which calculates the square root of 25 
+
+B <- sqrt(25)
+
+# And now, we will add A and B
+
+A + B
+
+```  
+
+You should have gotten an error saying: `Object A not found`. Fix the code above to create an object named `A` so the operation works. 
+
+### 
+
+As you continue to work through this tutorial, we will incorporate other operations in `R` to show you how to plot graphs, fit models, and simulate data. We can also recommend you check out this [Intro to R for Ecologists](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) if you would like more resources for learning to work with R.
 
 
 

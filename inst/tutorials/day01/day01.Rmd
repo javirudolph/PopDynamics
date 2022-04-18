@@ -121,14 +121,20 @@ As you continue to work through this tutorial, we will incorporate other operati
 
 ## Dynamic Equations
 
-  * Represent changes over time in the state of the system
+  * Dynamic equations represent changes over time in the state of the system
   * Time can be assumed discrete ($t-1, t, t+1, ...$) or continuous ($t>0$)
-  * The state variable is a quantity that represents the state of the system at time $t$ (e.g. $n(t) =$ population size at time $t$).
+  * The state variable is a quantity that represents the state of the system at time $t$.  
+      * Like $n(t) =$ population size at time $t$.
   *  Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws.
 
 **Building dynamic models in continuous time**  
 
-Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.If we are going to consider continuous time dynamic models for species with overlapping generations, we’d better come up with a system that eases the process. Coming up with a mathematical function $n(t)$ that describes the changes in the state of the system (like population size) directly (‘out of the blue’) is difficult. It is easier, however, to think about biological processes that shape the rate of change the system, and then find out if the trends produced by such processes look like the observed trends. When we were talking about annual species, it was easy to build population dynamics models because we only had to predict what was going to happen one time step into the future. In continuous time, we use differential equation, what are these things!!??!! 
+  * Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.
+  * If we are going to consider continuous time dynamic models for species with overlapping generations, we’d better come up with a system that eases the process.
+  * Coming up with a mathematical function $n(t)$ that describes the changes in the state of the system (like population size) directly (‘out of the blue’) is difficult.
+  * It is easier, however, to think about biological processes that shape the rate of change in the system, and then find out if the trends produced by such processes look like the observed trends.
+  * When we talk about annual species, it is easy to build population dynamics models because we only have to predict what is going to happen one time step into the future. 
+      * In continuous time, we use differential equations. **What are these things!!??!!** 
 
 
 ## Differential Equations  

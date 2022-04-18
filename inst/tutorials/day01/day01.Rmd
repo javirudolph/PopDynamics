@@ -5,6 +5,8 @@ output:
     progressive: true
     allow_skip: true
 runtime: shiny_prerendered
+description: >
+  First day of a week-long workshop on population dynamics. Learn how to set up R and RStudio on your machine, and a gentle introduction to differential equations, exponential growth, and the logistic equation.
 ---
 
 ```{r setup, include=FALSE}
@@ -52,7 +54,25 @@ If you have not done so already, please watch the following videos to install R 
 
 ![](https://vimeo.com/203516968)
 
-## Intro to R
+### Intro to R
+
+`R` is a scripting language, originally intended as a convenient environment for statistical analysis, and perform many calculations.  It's free and available on Mac, Windows and Linux platforms.At the beginning, around the early 2000's, it was easy to keep track with all the developments related to  this neat software, and now it is virtually impossible.  Yet, all the contributions to this programming language are readily available, conveniently listed, documented, and easy to find in the main software's [web page](http://www.r-project.org). 
+
+`R` is not a point-and-click software and all the instructions are typed in the *command* window, or in the `RStudio` **console** (you can access the RStudio IDE cheatsheet [here](https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf), to help you navigate RStudio). However, with this interactive tutorial you will be able to solve exercises and practice writing code without leaving the tutorial's window. So, let's start with some simple exercises. 
+
+### 
+
+You can use R as a simple calculator. For example, in the `code chunk` below type `24+4` and press <span style="color: #b0d0f7;">run code</span>. 
+
+```{r addition, exercise = TRUE, exercise.timelimit = 60}
+
+```
+
+
+You can also press the *Start Over* button and try different operations. You can also run multiple operations in the same window, as long as each operation is on one line. 
+
+
+
 
 ## Dynamic Equations
 

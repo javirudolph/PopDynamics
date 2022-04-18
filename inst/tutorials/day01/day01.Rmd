@@ -97,12 +97,25 @@ A + B
 
 ```  
 
+```{r name-object02-solution}
+
+# We will create another object, called `B`, which calculates the square root of 25 
+
+B <- sqrt(25)
+
+# And now, we will add A and B
+
+A <- 10
+
+A + B
+
+```
+
 You should have gotten an error saying: `Object A not found`. Fix the code above to create an object named `A` so the operation works. 
 
 ### 
 
 As you continue to work through this tutorial, we will incorporate other operations in `R` to show you how to plot graphs, fit models, and simulate data. We can also recommend you check out this [Intro to R for Ecologists](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) if you would like more resources for learning to work with R.
-
 
 
 
@@ -115,13 +128,12 @@ As you continue to work through this tutorial, we will incorporate other operati
 
 **Building dynamic models in continuous time**  
 
-Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.If we are going to consider continuous time dynamic models for species with overlapping generations, we’d better come up with a system that eases the process.Coming up with a mathematical function n(t) that describes the changes in the state of the system (like population size) directly (‘out of the blue’) is difficult.It is easier, however, to think about biological processes that shape the rate of change the system, and then find out if the trends produced by such processes look like the observed
-trends. When we were talking about annual species, it was easy to build population dynamics models because we only had to predict what was going to happen one time step into the future.In continuous time, we use differential equation, what are these things!!??!! 
+Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.If we are going to consider continuous time dynamic models for species with overlapping generations, we’d better come up with a system that eases the process. Coming up with a mathematical function $n(t)$ that describes the changes in the state of the system (like population size) directly (‘out of the blue’) is difficult. It is easier, however, to think about biological processes that shape the rate of change the system, and then find out if the trends produced by such processes look like the observed trends. When we were talking about annual species, it was easy to build population dynamics models because we only had to predict what was going to happen one time step into the future. In continuous time, we use differential equation, what are these things!!??!! 
 
 
 ## Differential Equations  
 
-What is a differential equation? It is an equation involving an unknown function and its derivatives. For example:
+**What is a differential equation?** It is an equation involving an unknown function and its derivatives. For example:
 
 $$\frac{df(x)}{dx} = r f(x)$$
 where $f(x)$ is a function of $x$. 

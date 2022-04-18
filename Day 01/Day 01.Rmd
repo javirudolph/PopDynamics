@@ -1,12 +1,17 @@
 ---
 title: "Day 01"
-output: learnr::tutorial
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
+
+tutorial_options(exercise.startover = TRUE)
 ```
 
 
@@ -26,7 +31,10 @@ quiz(
            random_answer_order = TRUE
            )
 )
+
 ```
+
+
 
 In this workshop, we hope to give you an introduction to population dynamics modeling, and in the process, show you how to use R to understand how populations change over time.
 

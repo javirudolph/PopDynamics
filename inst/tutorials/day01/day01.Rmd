@@ -16,11 +16,9 @@ knitr::opts_chunk$set(echo = FALSE)
 tutorial_options(exercise.startover = TRUE)
 ```
 
-
 ## Welcome!
 
 We are very excited to have you here and we hope that this short workshop will provide a useful and practical introduction to population dynamics using R.
-
 
 ```{r PopDynQ}
 quiz(
@@ -36,15 +34,13 @@ quiz(
 
 ```
 
-
-
 In this workshop, we hope to give you an introduction to population dynamics modeling, and in the process, show you how to use R to understand how populations change over time.
 
 ## What is R
 
-*So, why R? What is R?* As the [R project website](https://www.r-project.org/) describes it, R is a software environment used for statistics and graphics. However, from personal experience we can tell you that R is much more than that. R is a software environment, and just like many other software you may use to write or make presentations, R was initially developed to perform statistical operations. Nowadays, you can use R to perform statistical analysis, plot your data, make maps, [art](https://twitter.com/accidental__art?lang=en), and even this tutorial.  
+*So, why R? What is R?* As the [R project website](https://www.r-project.org/) describes it, R is a software environment used for statistics and graphics. However, from personal experience we can tell you that R is much more than that. R is a software environment, and just like many other software you may use to write or make presentations, R was initially developed to perform statistical operations. Nowadays, you can use R to perform statistical analysis, plot your data, make maps, [art](https://twitter.com/accidental__art?lang=en), and even this tutorial.
 
-If you have not done so already, please watch the following videos to install R and RStudio:  
+If you have not done so already, please watch the following videos to install R and RStudio:
 
 ### How to install R
 
@@ -56,24 +52,23 @@ If you have not done so already, please watch the following videos to install R 
 
 ### Intro to R
 
-`R` is a scripting language, originally intended as a convenient environment for statistical analysis, and perform many calculations.  It's free and available on Mac, Windows and Linux platforms.At the beginning, around the early 2000's, it was easy to keep track with all the developments related to  this neat software, and now it is virtually impossible.  Yet, all the contributions to this programming language are readily available, conveniently listed, documented, and easy to find in the main software's [web page](http://www.r-project.org). 
+`R` is a scripting language, originally intended as a convenient environment for statistical analysis, and perform many calculations. It's free and available on Mac, Windows and Linux platforms.At the beginning, around the early 2000's, it was easy to keep track with all the developments related to this neat software, and now it is virtually impossible. Yet, all the contributions to this programming language are readily available, conveniently listed, documented, and easy to find in the main software's [web page](http://www.r-project.org).
 
-`R` is not a point-and-click software and all the instructions are typed in the *command* window, or in the `RStudio` **console** (you can access the RStudio IDE cheatsheet [here](https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf), to help you navigate RStudio). However, with this interactive tutorial you will be able to solve exercises and practice writing code without leaving the tutorial's window. So, let's start with some simple exercises. 
+`R` is not a point-and-click software and all the instructions are typed in the *command* window, or in the `RStudio` **console** (you can access the RStudio IDE cheatsheet [here](https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf), to help you navigate RStudio). However, with this interactive tutorial you will be able to solve exercises and practice writing code without leaving the tutorial's window. So, let's start with some simple exercises.
 
 ### 
 
-You can use R as a simple calculator. For example, in the `code chunk` below type `24+4` and press <span style="color: #b0d0f7;">run code</span>. 
+You can use R as a simple calculator. For example, in the `code chunk` below type `24+4` and press [run code]{style="color: #b0d0f7;"}.
 
 ```{r addition, exercise = TRUE, exercise.timelimit = 60}
 
 ```
 
-
-You can also press the *Start Over* button and try different operations, or run multiple operations in the same window, as long as each operation is on one line.  
+You can also press the *Start Over* button and try different operations, or run multiple operations in the same window, as long as each operation is on one line.
 
 ### 
 
-`R` is an **Object-oriented** programming language: whenever we do any calculation, we can store the results by giving them a name.  The results then become an *object*, which is retrievable and can be altered in other calculations.  This is convenient whenever we are doing complex calculations and we simply don't want to retype all the instructions over and over again.  To assign a name to a calculation, we use the `<` sign followed by the `-` sign, which looks like an arrow pointing to the left, `<-`.  
+`R` is an **Object-oriented** programming language: whenever we do any calculation, we can store the results by giving them a name. The results then become an *object*, which is retrievable and can be altered in other calculations. This is convenient whenever we are doing complex calculations and we simply don't want to retype all the instructions over and over again. To assign a name to a calculation, we use the `<` sign followed by the `-` sign, which looks like an arrow pointing to the left, `<-`.
 
 ```{r name-object, exercise = TRUE, exercise.timelimit = 60}
 
@@ -81,9 +76,9 @@ A <- 24+2
 
 # Type `A` in the line below and press the `run code` button
 
-``` 
+```
 
-You can also make operations between multiple objects: 
+You can also make operations between multiple objects:
 
 ```{r name-object02, exercise = TRUE, exercise.timelimit = 60}
 
@@ -95,7 +90,7 @@ B <- sqrt(25)
 
 A + B
 
-```  
+```
 
 ```{r name-object02-solution}
 
@@ -111,54 +106,70 @@ A + B
 
 ```
 
-You should have gotten an error saying: `Object A not found`. Fix the code above to create an object named `A` so the operation works. 
+You should have gotten an error saying: `Object A not found`. Fix the code above to create an object named `A` so the operation works.
 
 ### 
 
 As you continue to work through this tutorial, we will incorporate other operations in `R` to show you how to plot graphs, fit models, and simulate data. We can also recommend you check out this [Intro to R for Ecologists](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) if you would like more resources for learning to work with R.
 
-
-
 ## Dynamic Equations
 
-  * Dynamic equations represent changes over time in the state of the system
-  * Time can be assumed discrete ($t-1, t, t+1, ...$) or continuous ($t>0$)
-  * The state variable is a quantity that represents the state of the system at time $t$.  
-      * Like $n(t) =$ population size at time $t$.
-  *  Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws.
+-   Dynamic equations represent changes over time in the state of the system.
+-   Time can be assumed discrete ($t-1, t, t+1, ...$) or continuous ($t>0$).
+    -   difference equations, or differential equations, respectively.
+-   The state variable is a quantity that represents the state of the system at time $t$.
+    -   Like $n(t) =$ population size at time $t$. 
+    
+For example, let us consider the discrete growth rates of 
+```{r}
 
-**Building dynamic models in continuous time**  
+```
 
-  * Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.
-  * If we are going to consider continuous time dynamic models for species with overlapping generations, we’d better come up with a system that eases the process.
-  * Coming up with a mathematical function $n(t)$ that describes the changes in the state of the system (like population size) directly (‘out of the blue’) is difficult.
-  * It is easier, however, to think about biological processes that shape the rate of change in the system, and then find out if the trends produced by such processes look like the observed trends.
-  * When we talk about annual species, it is easy to build population dynamics models because we only have to predict what is going to happen one time step into the future. 
-      * In continuous time, we use differential equations. **What are these things!!??!!** 
+    
+Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws.  
 
+### 
 
-## Differential Equations  
+**Building dynamic models in continuous time**
+
+-   Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.
+-   If we are going to consider continuous time dynamic models for species with overlapping generations, we'd better come up with a system that eases the process.
+-   Coming up with a mathematical function $n(t)$ that describes the changes in the state of the system (like population size) directly ('out of the blue') is difficult.
+-   It is easier, however, to think about biological processes that shape the rate of change in the system, and then find out if the trends produced by such processes look like the observed trends.
+-   When we talk about annual species, it is easy to build population dynamics models because we only have to predict what is going to happen one time step into the future.
+    -   In continuous time, we use differential equations. **What are these things!!??!!**
+
+## Differential Equations
 
 **What is a differential equation?** It is an equation involving an unknown function and its derivatives. For example:
 
-$$\frac{df(x)}{dx} = r f(x)$$
-where $f(x)$ is a function of $x$. 
+$$\frac{df(x)}{dx} = r f(x)$$ where $f(x)$ is a function of $x$.
 
+![](https://www.youtube.com/watch?v=HKvP2ESjJbA)  
 
+If we consider population size as a function of time, $n(t)$, the differential equation from above can be written as: 
 
-![intro video](https://www.youtube.com/watch?v=HKvP2ESjJbA)
+$$\frac{d\,n(t)}{dt} = r\,n(t)$$
+where $n(t)$ is population size as a function of time $t$ and $\frac{d\,n(t)}{dt}$ is the rate of change of the population (in units of *abundance/time*).  
 
+The function $n(t)$ is the ultimate descriptor of how population size $n$ changes over time, yet I am not showing it in that example. Why?  
+Because the equation $\frac{d\,n(t)}{dt} = r\,n(t)$ is already phrasing an interesting hypothesis. To see why, divide both sides of the equation by $n(t)$:  
 
+$$\frac{1}{n(t)}\frac{d\,n(t)}{dt} = r = \text{a constant}$$  
 
+What this means is that the per unit abundance rate of change is constant! (the *per capita* rate of change is constant!). That is, the per individual contribution to the rate of change is **constant over time**.  
 
+Furthermore, if this statement is correct, then we can write $r = b-d$, where $b$ and $d$ are the *per individual* (or per unit abundance) birth and death rates, respectively. If $b>d$, meaning there are more births than deaths per individual, then $r>0$, meaning the growth rate is greater than zero. On the other hand, if $b<d$, then $r<0$ and the growth rate is negative.  
 
+Now, if this hypothesis of constant rate of change per unit abundance is true,  how would the population size at any time $t$ look like?  
 
+###  
 
+**Solving a differential equation**   
 
+Now, if this hypothesis of constant rate of change per unit abundance is true,  how would the population size at any time $t$ look like?  
 
-
-
-
+To find out, we need to *solve* the differential equation, or find the function $n(t)$ which when it is substituted into the differential equations yields back an identity. In other words, solving a differential equation amounts to finding the function $n(t)$ whose derivative is equal to the right hand side of the differential equation ($r\,n(t)$ in this case).
 
 
 

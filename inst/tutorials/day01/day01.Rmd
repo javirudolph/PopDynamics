@@ -189,16 +189,21 @@ $$N_t = N_0 \, e^{rt}$$
 
 Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. [In R, we can do this with a few lines of code]{style="color: #32a852"}
 
-```{r expgrowth01, echo=TRUE, include=TRUE}
+```{r expgrowth01, echo = TRUE}
 # First we set the initial population size by creating an object called N_0
 # we *asign* ( <- ) this object the value of 2 
 
 N_0 <- 2
 
 # Then, we create our time variable
-# Notice we use a colon to denote a sequence of numbers from 1 to 100
+# We define the maximum time we want to project
 
-t <- 1:100
+tmax <- 100
+
+
+# Then, we build the sequence of time. Notice we use a colon to denote a sequence of numbers from 1 to 100
+
+t <- 1:tmax
 
 # We also assign a value to our population growth rate
 
@@ -208,6 +213,8 @@ r <- 0.05
 # Finally, we use our solved differential equation to get our population size at time t, N_t
 
 N_t = N_0*exp(r*t)
+
+
 
 ```
 

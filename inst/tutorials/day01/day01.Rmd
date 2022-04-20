@@ -178,6 +178,44 @@ To find out, we need to *solve* the differential equation, or find the function 
 
 
 
+## Deterministic Exponential Growth
+
+This is the simplest of all population models and it describes the changes in population size for a population with unlimited resources in a homogeneous environment. Although this might seem like an unrealistic scenario, it is a useful one to start thinking about population dynamics, specially since most populations have experience exponential growth at one point in their life history. A simple example of this is bacterial growth in a new culture, invasive species when they first arrive to a new and suitable environment, and even pathogens when they encounter a susceptible population of hosts. Exponential growth is described by the differential equation: 
+
+$$\frac{dN}{dt} = rN$$
+If we **solve** this differential equation, we end with:  
+
+$$N_t = N_0 \, e^{rt}$$  
+
+Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. [In R, we can do this with a few lines of code]{style="color: #32a852"}
+
+```{r expgrowth01, echo=TRUE, include=TRUE}
+# First we set the initial population size by creating an object called N_0
+# we *asign* ( <- ) this object the value of 2 
+
+N_0 <- 2
+
+# Then, we create our time variable
+# Notice we use a colon to denote a sequence of numbers from 1 to 100
+
+t <- 1:100
+
+# We also assign a value to our population growth rate
+
+r <- 0.05
+
+
+# Finally, we use our solved differential equation to get our population size at time t, N_t
+
+N_t = N_0*exp(r*t)
+
+```
+
+You may have noticed that in the last line of code I used an equal sign **=** instead of the assignment **<-** operator. You can use both in R. 
+
+```{r expgrowthex, exercise = TRUE, exercise.setup = "expgrowth01"}
+
+```
 
 
 

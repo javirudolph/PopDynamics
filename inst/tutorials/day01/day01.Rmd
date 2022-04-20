@@ -194,25 +194,47 @@ Where $N_t$ is the population size at time $t$, with a starting population size 
 # we *asign* ( <- ) this object the value of 2 
 N_0 <- 2
 
+# We can "call" this object just by typing it:
+N_0
+
+```
+
+You can also experiment using different starting values, by changing the number **2** in the previous code to a different one.
+
+```{r, expgrowth02, exercise=TRUE}
 # Then, we create our time variable
 # We define the maximum time we want to project
 tmax <- 100
 
-# Then, we build the sequence of time. Notice we use a colon to denote a sequence of numbers from 1 to 100
+# An we build the sequence of time. Notice we use a colon to denote a sequence of numbers from 1 to 100
 t <- 1:tmax
 
 # We also assign a value to our population growth rate
 r <- 0.05
 
+
+
+```
+
+Now, we can calculate our population size at each of the time points.
+
+```{r expgrowthsetup01}
+N_0 <- 2
+tmax <- 100
+t <- 1:tmax
+r <- 0.05
+
+
+```
+
+
+```{r, expgrowth03, exercise=TRUE, exercise.setup="expgrowthsetup01"}
 # Finally, we use our solved differential equation to get our population size at time t, N_t
 N_t = N_0*exp(r*t)
 
+# N_t and t are called vectors. They are a concatenation of values, where each N_t is calculated using a different t.
 
-# You can type each of the previously assigned objects to see how they look like, and press the keyboard shortcut to run each line
-# For example:
-
-N_0
-
+N_t
 
 ```
 

@@ -189,19 +189,11 @@ $$N_t = N_0 \, e^{rt}$$
 
 Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. [In R, we can do this with a few lines of code. You can use the 'run code' button or use the keyboard shortcut 'Ctrl+Enter' to run each line. If using a Mac, keyboard shortcut is 'cmd+Enter']{style="color: #32a852"}
 
-```{r, expgrowth01, exercise=TRUE}
+```{r expgrowth01, exercise=TRUE}
 # First we set the initial population size by creating an object called N_0
 # we *asign* ( <- ) this object the value of 2 
 N_0 <- 2
 
-# We can "call" this object just by typing it:
-N_0
-
-```
-
-You can also experiment using different starting values, by changing the number **2** in the previous code to a different one.
-
-```{r, expgrowth02, exercise=TRUE, exercise.setup = "expgrowth01"}
 # Then, we create our time variable
 # We define the maximum time we want to project
 tmax <- 10
@@ -210,10 +202,13 @@ tmax <- 10
 t <- 1:tmax
 
 # We also assign a value to our population growth rate
-r <- 0.05
+r <- 0.5
 
 # Finally, we use our solved differential equation to get our population size at time t, N_t
 N_t = N_0*exp(r*t)
+
+# We can "call" this object just by typing it:
+N_0
 
 # N_t and t are called vectors. They are a concatenation of values, where each N_t is calculated using a different t.
 
@@ -227,8 +222,11 @@ In the code above, try to replace the last line `N_t` with `data.frame(t, Nt)` a
 
 ```{r expgrowthdf}
 question("What is the population size at time t=5?",
-  answer("2"),
-  answer("8", correct=TRUE)
+  answer("2.21"),
+  answer("24.36", correct=TRUE),
+  answer("43.32"),
+  answer("13.87"), 
+  allow_retry=TRUE
 )
 
 ```
@@ -236,17 +234,25 @@ question("What is the population size at time t=5?",
 
 
 
-We will now show you how to plot this exponential growth by visualizing **population size** on the y-axis and **time** on the x axis.   
+We will now show you how to plot this exponential growth by visualizing **population size** on the y-axis and **time** on the x axis.
+
+```{r expgrowth02}
+N_0 <- 2
+tmax <- 10
+t <- 1:tmax
+r <- 0.5
+N_t = N_0*exp(r*t)
+```
 
 
-```{r expgrowthex, exercise = TRUE, exercise.setup = "expgrowth02"}
+```{r expgrowth03, exercise = TRUE, exercise.setup = "expgrowth02"}
 
 plot(x = t, y = N_t, type = "l", xlab = "Time", ylab = "Population size", lty=1, cex = 1.5,
 cex.main = 1.5, cex.lab = 1.5, lwd=2, cex.axis = 1.5, col = "blue")
 
 ```
 
-
+You can play and change the plot components to see what each of them do. In the console, you can also type `?plot()`, which will open the help file for the function `plot()`.
 
 
 

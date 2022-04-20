@@ -2,7 +2,7 @@
 #'
 #' @param N_0 starting population size value
 #' @param r per capita growth rate value
-#' @param t time at which to project
+#' @param t time at which to project. Value or vector
 #'
 #' @return
 #' @export

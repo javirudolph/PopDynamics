@@ -11,7 +11,7 @@ exp_proj(N_0, r, t)
 
 \item{r}{per capita growth rate value}
 
-\item{t}{time at which to project}
+\item{t}{time at which to project. Value or vector}
 }
 \value{
 

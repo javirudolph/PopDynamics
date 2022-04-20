@@ -187,40 +187,45 @@ If we **solve** this differential equation, we end with:
 
 $$N_t = N_0 \, e^{rt}$$  
 
-Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. [In R, we can do this with a few lines of code]{style="color: #32a852"}
+Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. [In R, we can do this with a few lines of code. You can use the 'run code' button or use the keyboard shortcut 'Ctrl+Enter' to run each line. If using a Mac, keyboard shortcut is 'cmd+Enter']{style="color: #32a852"}
 
-```{r expgrowth01, echo = TRUE}
+```{r, expgrowth01, exercise=TRUE}
 # First we set the initial population size by creating an object called N_0
 # we *asign* ( <- ) this object the value of 2 
-
 N_0 <- 2
 
 # Then, we create our time variable
 # We define the maximum time we want to project
-
 tmax <- 100
 
-
 # Then, we build the sequence of time. Notice we use a colon to denote a sequence of numbers from 1 to 100
-
 t <- 1:tmax
 
 # We also assign a value to our population growth rate
-
 r <- 0.05
 
-
 # Finally, we use our solved differential equation to get our population size at time t, N_t
-
 N_t = N_0*exp(r*t)
 
+
+# You can type each of the previously assigned objects to see how they look like, and press the keyboard shortcut to run each line
+# For example:
+
+N_0
 
 
 ```
 
-You may have noticed that in the last line of code I used an equal sign **=** instead of the assignment **<-** operator. You can use both in R. 
+
+You may have noticed that in the last line of code I used an equal sign **=** instead of the assignment **<-** operator. You can use both in R. Also, you can write comments to the code using the pound sign **#** before text.  
+
+We will now show you how to plot this exponential growth by visualizing **population size** on the y-axis and **time** on the x axis.   
+
 
 ```{r expgrowthex, exercise = TRUE, exercise.setup = "expgrowth01"}
+
+plot(x = t, y = N_t, type = "l", xlab = "Time", ylab = "Population size", lty=1, cex = 1.5,
+cex.main = 1.5, cex.lab = 1.5, lwd=2, cex.axis = 1.5, col = "blue")
 
 ```
 

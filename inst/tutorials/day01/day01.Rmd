@@ -120,32 +120,28 @@ As you continue to work through this tutorial, we will incorporate other operati
 -   The state variable is a quantity that represents the state of the system at time $t$.
     -   Like $n(t) =$ population size at time $t$. 
     
-For example, let us consider the discrete growth rates of 
-```{r}
+Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws. 
 
-```
-
-    
-Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws.  
-
-### 
-
-**Building dynamic models in continuous time**
+### Building dynamic models in continuous time 
 
 -   Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.
 -   If we are going to consider continuous time dynamic models for species with overlapping generations, we'd better come up with a system that eases the process.
 -   Coming up with a mathematical function $n(t)$ that describes the changes in the state of the system (like population size) directly ('out of the blue') is difficult.
 -   It is easier, however, to think about biological processes that shape the rate of change in the system, and then find out if the trends produced by such processes look like the observed trends.
 -   When we talk about annual species, it is easy to build population dynamics models because we only have to predict what is going to happen one time step into the future.
-    -   In continuous time, we use differential equations. **What are these things!!??!!**
-
-## Differential Equations
+    -   In continuous time, we use differential equations. **What are these things!!??!!** 
+    
+## Differential Equations 
 
 **What is a differential equation?** It is an equation involving an unknown function and its derivatives. For example:
 
-$$\frac{df(x)}{dx} = r f(x)$$ where $f(x)$ is a function of $x$.
+$$\frac{df(x)}{dx} = r f(x)$$ where $f(x)$ is a function of $x$. 
+
+### 
 
 ![](https://www.youtube.com/watch?v=HKvP2ESjJbA)  
+
+### 
 
 If we consider population size as a function of time, $n(t)$, the differential equation from above can be written as: 
 
@@ -161,21 +157,15 @@ What this means is that the per unit abundance rate of change is constant! (the 
 
 Furthermore, if this statement is correct, then we can write $r = b-d$, where $b$ and $d$ are the *per individual* (or per unit abundance) birth and death rates, respectively. If $b>d$, meaning there are more births than deaths per individual, then $r>0$, meaning the growth rate is greater than zero. On the other hand, if $b<d$, then $r<0$ and the growth rate is negative.  
 
-Now, if this hypothesis of constant rate of change per unit abundance is true,  how would the population size at any time $t$ look like?  
+Now, if this hypothesis of constant rate of change per unit abundance is true,  how would the population size at any time $t$ look like? 
 
-###  
+### 
 
 **Solving a differential equation**   
 
 Now, if this hypothesis of constant rate of change per unit abundance is true,  how would the population size at any time $t$ look like?  
 
 To find out, we need to *solve* the differential equation, or find the function $n(t)$ which when it is substituted into the differential equations yields back an identity. In other words, solving a differential equation amounts to finding the function $n(t)$ whose derivative is equal to the right hand side of the differential equation ($r\,n(t)$ in this case).
-
-
-
-
-
-
 
 
 ## Deterministic Exponential Growth
@@ -229,9 +219,9 @@ question("What is the population size at time t=5?",
   allow_retry=TRUE
 )
 
-```
+``` 
 
-
+### 
 
 
 We will now show you how to plot this exponential growth by visualizing **population size** on the y-axis and **time** on the x axis.
@@ -256,8 +246,43 @@ You can play and change the plot components to see what each of them do. In the 
 
 
 
+###
 
+We will explore now how different *per capita population growth rates* can change the exponential growth curve, as you can see in the figure below.
 
+```{r expgrowth04}
+N_0 <- 2
+tmax <- 10
+t <- 1:tmax
+# We change the per capita growth from one value, to a vector of values
+r_i <- c(0.05, 0.35, 0.5, 0.6)
+
+# By using the function `sapply` here, we create a matrix of values, where each column uses a different value of r.
+N_ti <- sapply(r_i, FUN = function(r_i) N_0*exp(r_i*t))
+
+# The function `matplot` plots each of the columns of the matrix
+matplot(x = t, y = N_ti, type = "l", xlab = "Time", ylab = "Population size", col = c(1:length(r_i)), lty=1)
+legend("topleft", paste(rev(r_i)), lty = 1, col = length(r_i):1, title = "Values of r:")
+
+```
+
+The code used to make this figure is below. You can modify the code to change the plot, and use some of the arguments from the previous plot to change line width with `lwd=2`, or include more values for `r_i`, maybe change the starting population size. 
+
+```{r expgrowth05, exercise=TRUE}
+N_0 <- 2
+tmax <- 10
+t <- 1:tmax
+# We change the per capita growth from one value, to a vector of values
+r_i <- c(0.05, 0.35, 0.5, 0.6)
+
+# By using the function `sapply` here, we create a matrix of values, where each column uses a different value of r.
+N_ti <- sapply(r_i, FUN = function(r_i) N_0*exp(r_i*t))
+
+# The function `matplot` plots each of the columns of the matrix
+matplot(x = t, y = N_ti, type = "l", xlab = "Time", ylab = "Population size", col = c(1:length(r_i)), lty=1)
+legend("topleft", paste(rev(r_i)), lty = 1, col = length(r_i):1, title = "Values of r:")
+
+```
 
 
 

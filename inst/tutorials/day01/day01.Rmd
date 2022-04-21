@@ -6,7 +6,7 @@ output:
     allow_skip: true
 runtime: shiny_prerendered
 description: >
-  First day of a week-long workshop on population dynamics. Learn how to set up R and RStudio on your machine, and a gentle introduction to differential equations, exponential growth, and the logistic equation.
+  First day of a week-long workshop on population dynamics. Learn how to set up R and RStudio on your machine, and a gentle introduction to differential equations and exponential growth.
 ---
 
 ```{r setup, include=FALSE}
@@ -122,6 +122,9 @@ As you continue to work through this tutorial, we will incorporate other operati
     
 Models in Biology are treated as hypotheses. This is different from physics, where these models are natural laws. 
 
+### 
+
+
 ### Building dynamic models in continuous time 
 
 -   Ecologists are not mathematicians but recognize that mathematics can be used as a tool to formulate hypotheses.
@@ -157,7 +160,6 @@ What this means is that the per unit abundance rate of change is constant! (the 
 
 Furthermore, if this statement is correct, then we can write $r = b-d$, where $b$ and $d$ are the *per individual* (or per unit abundance) birth and death rates, respectively. If $b>d$, meaning there are more births than deaths per individual, then $r>0$, meaning the growth rate is greater than zero. On the other hand, if $b<d$, then $r<0$ and the growth rate is negative.  
 
-Now, if this hypothesis of constant rate of change per unit abundance is true,  how would the population size at any time $t$ look like? 
 
 ### 
 
@@ -177,7 +179,11 @@ If we **solve** this differential equation, we end with:
 
 $$N_t = N_0 \, e^{rt}$$  
 
-Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. [In R, we can do this with a few lines of code. You can use the 'run code' button or use the keyboard shortcut 'Ctrl+Enter' to run each line. If using a Mac, keyboard shortcut is 'cmd+Enter']{style="color: #32a852"}
+Where $N_t$ is the population size at time $t$, with a starting population size $N_0$ and $r$ being the *per capita growth rate*, $t$ is time and $e$ is the base of the natural logarithm, a constant. What this means is that if we *know* the population growth rate and its starting population size, then we can *project* the population size at a given time $t$. 
+
+### 
+
+[In R, we can do this with a few lines of code. You can use the 'run code' button or use the keyboard shortcut 'Ctrl+Enter' to run each line. If using a Mac, keyboard shortcut is 'cmd+Enter']{style="color: #32a852"}
 
 ```{r expgrowth01, exercise=TRUE}
 # First we set the initial population size by creating an object called N_0
@@ -221,6 +227,7 @@ question("What is the population size at time t=5?",
 
 ``` 
 
+
 ### 
 
 
@@ -245,8 +252,7 @@ cex.main = 1.5, cex.lab = 1.5, lwd=2, cex.axis = 1.5, col = "red")
 You can play and change the plot components to see what each of them do. In the console, you can also type `?plot()`, which will open the help file for the function `plot()`.
 
 
-
-###
+### 
 
 We will explore now how different *per capita population growth rates* can change the exponential growth curve, as you can see in the figure below.
 
@@ -284,5 +290,25 @@ legend("topleft", paste(rev(r_i)), lty = 1, col = length(r_i):1, title = "Values
 
 ```
 
+Finally, you might notice that the range of values in the y axis can increase drastically if we increase the value of `r`, the *per capita growth rate*, and we might want to visualize the y axis in log scale. The plot below shows the same information, but with y in the log scale. Can you spot the difference? 
+
+###  
+
+
+```{r expgrowth06, exercise=TRUE}
+N_0 <- 2
+tmax <- 10
+t <- 1:tmax
+r_i <- c(0.05, 0.35, 0.5, 0.6)
+N_ti <- sapply(r_i, FUN = function(r_i) N_0*exp(r_i*t))
+
+matplot(x = t, y = N_ti, log = "y", type = "l", xlab = "Time", ylab = "Population size", col = c(1:length(r_i)), lty=1)
+legend("topleft", paste(rev(r_i)), lty = 1, col = length(r_i):1, title = "Values of r:")
+
+``` 
+
+###
+
+To finish this section, we will run an exercise to estimate the *per capita growth rate* from a small dataset, so you can close this tutorial now.  
 
 
